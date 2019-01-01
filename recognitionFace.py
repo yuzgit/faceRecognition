@@ -13,9 +13,11 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 #カスケードファイルを使って顔認証
 faces = face_cascade.detectMultiScale(gray)
+print(faces)
 for (x,y,w,h) in faces:
     #顔部分を四角で囲う
-    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
+    #cv2.rectangle(イメージ,(左上x,y), (右下x,y),(色), 太さ)
+    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),3)
     cv2.imshow('img', img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
